@@ -127,9 +127,9 @@
       <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#工作流"><span class="toc-text">工作流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#核心概念"><span class="toc-text">核心概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源数据"><span class="toc-text">源数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
     </div>
   </div><div class="post-content"><!-- toc -->
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>工作原因，最近研究了ArcGIS中的Ortho Mapping模块。我们将它翻译为正射制图，包含了正射校正与制图两个概念。</p>
-<p>官方文档中译为正射映射，其定义为Ortho Mapping 是ArcGIS Desktop 提供的通过摄影测量的方式校正来自无人机、卫星、数字摄影和扫描航空摄影的影像，以消除由传感器、平台、地形位移和边匹配引发的几何变形，以及对生成的正射影像进行色彩平衡造成的几何变形，并使用这些影像可用于生成正射映射产品的一套解决方案。正射映射产品包括了正射影像，数字地形模型（DTM）和数字表面模型（DSM）。</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>工作原因，最近研究了ArcGIS中的Ortho Mapping模块。我们将它翻译为正射制图，包含了正射校正与制图两个概念。该系列从Ortho Mapping的核心概念、理论基础、操作流程、案例分析四方面进行记录。</p>
 <a id="more"></a>
+<p>官方文档中译为正射映射，其定义为Ortho Mapping 是ArcGIS Desktop 提供的通过摄影测量的方式校正来自无人机、卫星、数字摄影和扫描航空摄影的影像，以消除由传感器、平台、地形位移和边匹配引发的几何变形，以及对生成的正射影像进行色彩平衡造成的几何变形，并使用这些影像可用于生成正射映射产品的一套解决方案。正射映射产品包括了正射影像，数字地形模型（DTM）和数字表面模型（DSM）。</p>
 <p>正射校正其核心在于区域网平差。区域网平差是摄影测量学概念，它可以根据重叠影像、地面控制点 (GCP)、照相机模型和高程数据之间的摄影测量关系来计算投影区域（即区域网）的的平差或变换。区域网平差是正射校正过程中重要的一步，且正射映射产品的质量取决于平差中使用的连接点和地面控制点的精度。此步骤中需要重叠影像，重叠程度达 30% 及以上时，生成的结果最佳。如果投影区域受到高程变化和崎岖地形的影响，则要获得良好的效果，需要高精度的DEM。</p>
 <h2 id="工作流"><a href="#工作流" class="headerlink" title="工作流"></a>工作流</h2><p>ArcGIS Pro平台下正射制图工作流只有三步：创建工作空间，区域网平差，向导式生成正射映射产品。相比ArcMap平台，工作流以地理处理工具为基础串联起工作流。ArcGIS Pro平台新增了影像分析模块，并以Robbin风格对实现相同功能的工具进行集成，形成正射制图工作空间，区域网平差，产品生成向导三个模块。逻辑更清晰，操作效率更高。</p>
 <h2 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h2><p>正射校正的核心是区域网平差，区域网平差是摄影测量学中的概念。它可以根据重叠影像、地面控制点 (GCP)、照相机模型和高程数据之间的摄影测量关系来计算投影区域（即区域网）的平差或变换，计算平差或者计算这种变换在摄影测量学叫空三测量，解析空三。</p>
@@ -157,7 +157,12 @@
             <a href="/tags/%E6%AD%A3%E5%B0%84%E5%88%B6%E5%9B%BE/">正射制图</a>
             </div>
         
-        <nav class="post-nav"></nav></footer>
+        <nav class="post-nav"><a class="prev" href="/2020/06/30/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97%EF%BC%88%E4%B8%89%EF%BC%89/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">ArcGIS中的Ortho Mapping模块（三）</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    </nav></footer>
     </article></div><div class="comments" id="comments"></div></div>
       </main>
 
