@@ -121,28 +121,34 @@
     <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#工作流"><span class="toc-text">工作流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#核心概念"><span class="toc-text">核心概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源数据"><span class="toc-text">源数据</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#工作流"><span class="toc-text">工作流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#核心概念"><span class="toc-text">核心概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源数据"><span class="toc-text">源数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
     </div>
-  </div><div class="post-content"><p>[toc]<br>工作原因，最近研究了ArcGIS中的Ortho Mapping模块。我们将它翻译为正射制图，包含了正射校正与制图两个概念。<br>官方文档中译为正射映射，Ortho Mapping 是ArcGIS Desktop 提供的通过摄影测量的方式校正来自无人机、卫星、数字摄影和扫描航空摄影的影像，以消除由传感器、平台、地形位移和边匹配引发的几何变形，以及对生成的正射影像进行色彩平衡造成的几何变形，并使用这些影像可用于生成正射映射产品的一套解决方案（以上是帮助文档概念）。正射映射产品包括了正射影像，数字地形模型（DTM）和数字表面模型（DSM）。</p>
+  </div><div class="post-content"><!-- toc -->
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>工作原因，最近研究了ArcGIS中的Ortho Mapping模块。我们将它翻译为正射制图，包含了正射校正与制图两个概念。</p>
+<p>官方文档中译为正射映射，其定义为Ortho Mapping 是ArcGIS Desktop 提供的通过摄影测量的方式校正来自无人机、卫星、数字摄影和扫描航空摄影的影像，以消除由传感器、平台、地形位移和边匹配引发的几何变形，以及对生成的正射影像进行色彩平衡造成的几何变形，并使用这些影像可用于生成正射映射产品的一套解决方案。正射映射产品包括了正射影像，数字地形模型（DTM）和数字表面模型（DSM）。</p>
 <a id="more"></a>
-<h2 id="工作流"><a href="#工作流" class="headerlink" title="工作流"></a>工作流</h2><h2 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h2><h2 id="源数据"><a href="#源数据" class="headerlink" title="源数据"></a>源数据</h2>
+<p>正射校正其核心在于区域网平差。区域网平差是摄影测量学概念，它可以根据重叠影像、地面控制点 (GCP)、照相机模型和高程数据之间的摄影测量关系来计算投影区域（即区域网）的的平差或变换。区域网平差是正射校正过程中重要的一步，且正射映射产品的质量取决于平差中使用的连接点和地面控制点的精度。此步骤中需要重叠影像，重叠程度达 30% 及以上时，生成的结果最佳。如果投影区域受到高程变化和崎岖地形的影响，则要获得良好的效果，需要高精度的DEM。</p>
+<h2 id="工作流"><a href="#工作流" class="headerlink" title="工作流"></a>工作流</h2><p>ArcGIS Pro平台下正射制图工作流只有三步：创建工作空间，区域网平差，向导式生成正射映射产品。相比ArcMap平台，工作流以地理处理工具为基础串联起工作流。ArcGIS Pro平台新增了影像分析模块，并以Robbin风格对实现相同功能的工具进行集成，形成正射制图工作空间，区域网平差，产品生成向导三个模块。逻辑更清晰，操作效率更高。</p>
+<h2 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h2><p>正射校正的核心是区域网平差，区域网平差是摄影测量学中的概念。它可以根据重叠影像、地面控制点 (GCP)、照相机模型和高程数据之间的摄影测量关系来计算投影区域（即区域网）的平差或变换，计算平差或者计算这种变换在摄影测量学叫空三测量，解析空三。</p>
+<p>摄影测量的结果求解计算由影像内部方向（表示从照相机到图像的变换）及其外部方向（表示从地面到照相机的变换）决定。求解平差（变换）的方法是最小二乘法。</p>
+<p>Ortho Mapping中的正射校正概念更加广义，涵盖了几何校正与地形校正。</p>
+<h2 id="源数据"><a href="#源数据" class="headerlink" title="源数据"></a>源数据</h2><p>正射制图支持的数据类型有无人机、卫星和航空影像（数字、扫描）。内置了包括了许多主流的相机类型和栅格类型的支持。有如此区别不光是数据类型的差异，不同数据类型，影像方向（RPC、帧表等）表达形式不同也影响之后区域网平差的差异。不同的数据类型才有相应的正射映射工作空间的分类。</p>
+<p>影像从原始数据到影像产品，经过多步处理，形成产品分级。典型的卫星影像，对于遥感影像预处理类型和程度来说，采用统一的处理级别体系来描述其优点变得清晰，但是分级标准并不统一。下述描述了一种数据级别分类：</p>
+<ul>
+<li>0级：传感器收集到的原始数据。0 级数据并不是十分有用，除非你的兴趣点或研究内容是传感器本身。</li>
+<li>1A级：均衡化辐射校正的数据产品。通过不同检测器的均衡功能对影响传感器的变化进行校正。包括了将DN 值转换为辐射亮度值的绝对校正系数。</li>
+<li>1B级：该步主要用于对一些传感器的几何畸变进行校正。对没有几何畸变的传感器来说，这一步是不需要的。同时，需要注意的是，1B 级数据不可恢复为0 级数据。</li>
+<li>2A级：经过系统几何校正的数据。该级别数据名义上具有地理参考，但其精度并不高。</li>
+<li>2B级：为了提高影像的空间位置精度，需要考虑到用户输入信息，借助具有准确位置信息的地面控制点来对影像进行位置校准。经过该处理的影像是具有原始空间分辨率且空间位置准确的数据产品（局部地形起伏较大的区域除外）。</li>
+<li>3级：经正射校正的数据产品。对于具有大量地势起伏（比如：多山区域）的地区，要获取更准确的空间位置，需要进一步的校正来消除由于地形起伏、传感器倾斜等导致的几何误差。</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>张祖勋, 张剑清. 数字摄影测量学[M]. 武汉大学出版社, 1997.<br><a href="https://pro.arcgis.com/zh-cn/pro-app/help/data/imagery/satellite-sensor-raster-types.htm" target="_blank" rel="noopener">卫星传感器栅格类型支持</a><br><a href="https://pro.arcgis.com/zh-cn/pro-app/help/data/imagery/aerial-imagery-raster-types.htm" target="_blank" rel="noopener">航空影像栅格类型支持</a></p>
+
       </div>
-      <div class="post-copyright">
-    <p class="copyright-item">
-      <span>原文作者: </span>
-      <a href="https://obladlee.github.io">LI MING</a>
-    </p>
-    <p class="copyright-item">
-      <span>原文链接: </span>
-      <a href="https://obladlee.github.io/2020/06/29/ArcGIS%E4%B8%AD%E7%9A%84Ortho%20Mapping%E6%A8%A1%E5%9D%97%EF%BC%88%E4%B8%80%EF%BC%89/">https://obladlee.github.io/2020/06/29/ArcGIS%E4%B8%AD%E7%9A%84Ortho%20Mapping%E6%A8%A1%E5%9D%97%EF%BC%88%E4%B8%80%EF%BC%89/</a>
-    </p>
-    <p class="copyright-item">
-      <span>许可协议: </span><a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
-    </p>
-  </div>
+      
       <footer class="post-footer">
         <div class="post-tags">
-            <a href="/tags/%E6%A0%85%E6%A0%BC/">栅格</a>
+            <a href="/tags/%E6%A0%85%E6%A0%BC-%E6%AD%A3%E5%B0%84%E5%88%B6%E5%9B%BE/">-栅格 -正射制图</a>
             </div>
         
         <nav class="post-nav"></nav></footer>
