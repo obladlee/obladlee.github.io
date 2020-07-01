@@ -14,7 +14,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 <meta name="description" content="2D要素数据转3D数据"/><meta name="keywords" content="GeoScience" /><link rel="alternate" href="/default" title="GeoSpatial"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
-<link rel="canonical" href="https://obladlee.github.io/2020/06/30/2D要素数据转3D数据/"/>
+<link rel="canonical" href="https://obladlee.github.io/2020/07/01/2D要素数据转3D数据/"/>
 
 <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" /><script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
@@ -114,7 +114,7 @@
 
       <div class="post-meta">
         <span class="post-time">
-          2020-06-30
+          2020-07-01
         </span><span class="post-category">
             <a href="/categories/ArcGIS/">ArcGIS</a>
             </span>
@@ -135,19 +135,19 @@
 <h2 id="2D要素数据转3D数据"><a href="#2D要素数据转3D数据" class="headerlink" title="2D要素数据转3D数据"></a>2D要素数据转3D数据</h2><p>要素数据的几何信息存储在shape字段中。二三维要素数据差别在于三维数据Z值嵌入到几何或者shape字段中。比如属性表中三维点以PointZ存储几何。</p>
 <div style="text-align: center;">
 
-<p><img src="/2020/06/30/2D%E8%A6%81%E7%B4%A0%E6%95%B0%E6%8D%AE%E8%BD%AC3D%E6%95%B0%E6%8D%AE/shape.png" alt="3d点要素"></p>
+<p><img src="/2020/07/01/2D%E8%A6%81%E7%B4%A0%E6%95%B0%E6%8D%AE%E8%BD%AC3D%E6%95%B0%E6%8D%AE/shape.png" alt="3d点要素"></p>
 </div>
 
 <h3 id="从常数值获取要素的高度"><a href="#从常数值获取要素的高度" class="headerlink" title="从常数值获取要素的高度"></a>从常数值获取要素的高度</h3><p>编辑3D要素时可以通过编辑折点来指定几何Z值。</p>
 <div style="text-align: center;">
 
-<p><img src="/2020/06/30/2D%E8%A6%81%E7%B4%A0%E6%95%B0%E6%8D%AE%E8%BD%AC3D%E6%95%B0%E6%8D%AE/edit.png" alt="编辑折点"></p>
+<p><img src="/2020/07/01/2D%E8%A6%81%E7%B4%A0%E6%95%B0%E6%8D%AE%E8%BD%AC3D%E6%95%B0%E6%8D%AE/edit.png" alt="编辑折点"></p>
 </div>
 
 <h3 id="从要素的属性获取高度值"><a href="#从要素的属性获取高度值" class="headerlink" title="从要素的属性获取高度值"></a>从要素的属性获取高度值</h3><p>使用依据属性实现要素转3D工具(FeatureTo3DByAttribute)可以指定某个字段值为几何Z值。该工具可以指定两个字段值构造坡度线。</p>
 <div style="text-align: center;">
 
-<p><img src="/2020/06/30/2D%E8%A6%81%E7%B4%A0%E6%95%B0%E6%8D%AE%E8%BD%AC3D%E6%95%B0%E6%8D%AE/attribute.png" alt="FeatureTo3DByAttribute"></p>
+<p><img src="/2020/07/01/2D%E8%A6%81%E7%B4%A0%E6%95%B0%E6%8D%AE%E8%BD%AC3D%E6%95%B0%E6%8D%AE/attribute.png" alt="FeatureTo3DByAttribute"></p>
 </div>
 
 <h3 id="从表面获取要素的高度值"><a href="#从表面获取要素的高度值" class="headerlink" title="从表面获取要素的高度值"></a>从表面获取要素的高度值</h3><p>使用插值shape()和添加表面信息()两个工具为输入要素生成几何Z值。</p>
@@ -165,13 +165,8 @@
             <a href="/tags/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/">数据处理</a>
             </div>
         
-        <nav class="post-nav"><a class="prev" href="/2020/06/30/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97%EF%BC%88%E4%BA%8C%EF%BC%89/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">ArcGIS中的Ortho Mapping模块（二）</span>
-        <span class="prev-text nav-mobile">上一篇</span>
-      </a>
-    <a class="next" href="/2020/06/29/ArcGIS%E4%B8%AD%E7%9A%84Ortho%20Mapping%E6%A8%A1%E5%9D%97%EF%BC%88%E4%B8%80%EF%BC%89/">
-        <span class="next-text nav-default">ArcGIS中的Ortho Mapping模块（一）</span>
+        <nav class="post-nav"><a class="next" href="/2020/06/30/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97%EF%BC%88%E4%BA%8C%EF%BC%89/">
+        <span class="next-text nav-default">ArcGIS中的Ortho Mapping模块（二）</span>
         <span class="prev-text nav-mobile">下一篇</span>
         <i class="iconfont icon-right"></i>
       </a>
