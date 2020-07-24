@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="ArcGIS中的Ortho-Mapping模块(四)"/><meta name="keywords" content="GeoScience" /><link rel="alternate" href="/default" title="GeoSpatial"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
+<link rel="canonical" href="https://obladlee.github.io/2020/07/24/ArcGIS中的Ortho-Mapping模块-四/"/>
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" /><script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0" />
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":"","latex":true};
+</script>
+
+    <title>ArcGIS中的Ortho-Mapping模块(四) - GeoSpatial</title>
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">GeoSpatial</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">首页
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">归档
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签
+          </li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">GeoSpatial</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            首页
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            归档
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            标签
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            分类
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            关于
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">ArcGIS中的Ortho-Mapping模块(四)
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2020-07-24
+        </span><span class="post-category">
+            <a href="/categories/ArcGIS/">ArcGIS</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基于卫星影像的操作流程"><span class="toc-text">基于卫星影像的操作流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#关于卫星影像"><span class="toc-text">关于卫星影像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建卫星影像正射工作空间"><span class="toc-text">创建卫星影像正射工作空间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#区域网平差"><span class="toc-text">区域网平差</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#向导式生成产品"><span class="toc-text">向导式生成产品</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><!-- toc -->
+<p>该系列最后一篇，我们以卫星影像为例简述其正射制图流程，详述与无人机影像处理流程的差异。</p>
+<a id="more"></a>
+<h2 id="基于卫星影像的操作流程"><a href="#基于卫星影像的操作流程" class="headerlink" title="基于卫星影像的操作流程"></a>基于卫星影像的操作流程</h2><h3 id="关于卫星影像"><a href="#关于卫星影像" class="headerlink" title="关于卫星影像"></a>关于卫星影像</h3><p>卫星影像有数据产品分级，从商业公司获取的一般是1A 级。分级没有完全统一的标准，商业卫星公司DG 有自己的标准，根据我们的中国资源卫星应用中心公布的卫星标准数据产品级别，1A 级（预处理级辐射校正影像产品）：经数据解析、均一化辐射校正、去噪、MTFC、CCD 拼接、波段配准等处理的影像数据；并提供卫星直传姿轨数据生产的RPC 文件。（参考遥感数据分级）卫星同时有不同波段的产品类型，比如全色产品和多光谱产品，一般完成正射校正后可以进行影像融合获取高分辨率彩色影像（全色锐化）。不同波段产品也区分了创建卫星影像正摄空间的处理模板。卫星影像的RPC 参数或者模型（有理多项式系数）描述了影像方向，参与区域网平差计算。卫星的数据产品也有立体像对产品，比如资源三号WorldView 系列。对于卫星影像的操作流程基本与无人机影像类似，以下以资源三号卫星影像为例解释操作的不同。</p>
+<h3 id="创建卫星影像正射工作空间"><a href="#创建卫星影像正射工作空间" class="headerlink" title="创建卫星影像正射工作空间"></a>创建卫星影像正射工作空间</h3><p>传感器类型提供丰富的卫星类型支持，选择正确的传感器类型。</p>
+<div style="text-align: center;">
+
+<p><img src="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97-%E5%9B%9B/%E4%BC%A0%E6%84%9F%E5%99%A8.jpg" alt="理论图示"></p>
+</div>
+
+<p>数据加载程序选项中，一定选择正确的处理模板，ZY3 的处理模板有所有波段，多光谱，全色，全色锐化，全色锐化和多光谱，双线立体，三线立体。</p>
+<p>高程源可以设置为本地DEM（分辨率精细）或者高程服务。将大地水准面（EGM96）校正应用于Z 值，因为高程源DEM（正高）与椭球体高的卫星RPC 高程系统不一致，如果DEM参考了椭球体高，不需要勾选。RPC 与高程DEM 垂直单位不同的话，使用Z 因子调整，使用Z 偏移调整高程DEM 偏移海平面高度。</p>
+<div style="text-align: center;">
+
+<p><img src="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97-%E5%9B%9B/%E9%AB%98%E7%A8%8B%E6%BA%90.jpg" alt="理论图示"></p>
+</div>
+
+<h3 id="区域网平差"><a href="#区域网平差" class="headerlink" title="区域网平差"></a>区域网平差</h3><ol>
+<li>校正组：影像位置精度。与无人机影像校正选项中GPS 位置精度类似，描述影像的定位精度。卫星影像定位精度取决于取决于传感器观测几何、传感器类型和处理级别。<ul>
+<li>点相似性、点密度、点分布：描述输出连接点的特征。点相似性有三个等级：高、中、低，点相似性高，则匹配连接点对的相似容差等级为高级。此选项将生成数目最少的匹配连接点对，但是每个匹配连接点对的错误 (error) 等级可能比较低。点密度指输出点的密度，点分布指输出点的分布，随机或常规分布。</li>
+<li>掩膜面要素可以指定连接点计算的区域，mask 字段控制区域的排除。</li>
+<li>计算地面控制点：可输入参考影像计算GCP。确保您的参考影像在地理位置精度和清晰度方面具有良好的地理配准质量，且分辨率与您的源影像相似，默认的 ArcGIS Online 世界影像服务，即是用于计算卫星数据 GCP 时的极佳参考。</li>
+</ul>
+</li>
+<li>优化组、检查组：连接点的计算、管理、编辑，控制点的添加、管理、编辑和无人机影像中的处理基本没有差异。卫星影像可以在校正前添加GCP，无人机影像必须执行校正后才能添加GCP。<h3 id="向导式生成产品"><a href="#向导式生成产品" class="headerlink" title="向导式生成产品"></a>向导式生成产品</h3></li>
+</ol>
+<p>要想生成DEM，必须有立体像对。DEM 向导通常用于处理无人机影像、数字航空影像或某些专为立体应用程序捕获的卫星影像。点云设置、DEM 插值过程和正射镶嵌向导中色彩平衡、接缝线与正射镶嵌设置与无人机影像处理过程无异同。</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Ortho Mapping 工作流涉及摄影测量学概念，但工作流是封装的，处理逻辑是清晰的，ArcMap 中的工作流以地理处理工具为基础串联起工作流，ArcGIS Pro 平台产生的工作空间把实现相同功能的工具进行集成，形成正射映射工作空间，区域网平差，产品生成向导三个模块。连接点、控制点对于校正的效果尤其重要，平均重投影误差评估了区域网平差的精确程度，除此外，没有定量的参数去评估最终产品的效果。当然也可以从视觉程度上对比校正前后的效果。对于关注产品结果的某些需求，可能需要积累更多经验性的操作过程。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://pro.arcgis.com/zh-cn/pro-app/help/data/imagery/introduction-to-ortho-mapping.htm" target="_blank" rel="noopener">Ortho Mapping帮助文档</a></p>
+
+      </div>
+      
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/%E6%A0%85%E6%A0%BC/">栅格</a>
+            <a href="/tags/%E6%AD%A3%E5%B0%84%E5%88%B6%E5%9B%BE/">正射制图</a>
+            </div>
+        
+        <nav class="post-nav"><a class="next" href="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97-%E4%B8%89/">
+        <span class="next-text nav-default">ArcGIS中的Ortho-Mapping模块(三)</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"><div id="lv-container" data-id="city" data-uid="MTAyMC81MDgxNi8yNzI5OA==">
+        <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+      </div>  
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:lim@esrichina.com.cn" class="iconfont icon-email" title="email"></a>
+        <a href="https://github.com/obladlee" target="_blank" rel="noopener" class="iconfont icon-github" title="github"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    </div><div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even" target="_blank" rel="noopener">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2019 - 2020<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">LI MING</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript">
+	(function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+  </script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>
