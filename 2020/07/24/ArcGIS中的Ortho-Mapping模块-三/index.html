@@ -131,9 +131,9 @@
 <a id="more"></a>
 
 <h2 id="工作流"><a href="#工作流" class="headerlink" title="工作流"></a>工作流</h2><p>简单来讲，工作流分为三步：创建正射制图工作空间，区域网平差，向导式生成正射产品。以下图示略复杂，因为涉及以镶嵌数据集创建正射映射工作空间。下述会解释其应用情景。</p>
-<div style="text-align: center;">
+<div style="margin:auto;width:40%">
 
-<p><img src="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97-%E4%B8%89/%E5%B7%A5%E4%BD%9C%E6%B5%81.jpg" alt="理论图示">{:height=”60%” width=”60%”}</p>
+<p><img src="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97-%E4%B8%89/%E5%B7%A5%E4%BD%9C%E6%B5%81.jpg" alt="理论图示"></p>
 </div>
 
 <h3 id="创建正射制图工作空间"><a href="#创建正射制图工作空间" class="headerlink" title="创建正射制图工作空间"></a>创建正射制图工作空间</h3><ol>
@@ -148,9 +148,9 @@
 <li><p>其分类依据在于不同类型影像传感器，其影像内部方向与外部方向的定义方式不同，导致了区域网平差解算方式不同。卫星影像由于涉及机密，影像方向由有理多项式系数（RPC）模型描述，RPC 或者作为单独的元数据文件，或者嵌入图像文件。航空影像其内部方向（IO）与外部方向（EO）由照相机表与帧表描述，扫描航空影像的扫描方式和基准也影响内部方向。无人机影像方向信息作为元数据存在图像的EXIF 标头。</p>
 </li>
 </ol>
-<div style="text-align: center;">
+<div style="margin:auto;width:35%">
 
-<p><img src="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97-%E4%B8%89/exif.jpg" alt="理论图示">{:height=”60%” width=”60%”}</p>
+<p><img src="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97-%E4%B8%89/exif.jpg" alt="理论图示"></p>
 </div>
 
 <ol start="3">
@@ -164,37 +164,47 @@
 <h2 id="基于无人机影像的操作流程"><a href="#基于无人机影像的操作流程" class="headerlink" title="基于无人机影像的操作流程"></a>基于无人机影像的操作流程</h2><h3 id="创建无人机影像正射制图工作空间"><a href="#创建无人机影像正射制图工作空间" class="headerlink" title="创建无人机影像正射制图工作空间"></a>创建无人机影像正射制图工作空间</h3><ol>
 <li>影像分析选项卡下新建正射制图工作空间，进入创建向导。</li>
 </ol>
-<div style="text-align: center;">
+<div style="margin:auto;width:80%">
 
-<p><img src="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97-%E4%B8%89/create.jpg" alt="理论图示">{:height=”80%” width=”80%”}</p>
+<p><img src="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97-%E4%B8%89/create.jpg" alt="理论图示"></p>
 </div>
 
 <ol start="2">
 <li>选择无人机数据类型，传感器类型一般选择通用（单传感器无人机系统），RedEdge 或Altum 选项代表多传感器系统下的多光谱和热红外传感器。地理位置和照相机模型可以从图像EXIF 标头读取，缺失的话需要导入地理位置文件和编辑照相机参数。高程源参数可以设置高程服务或者本地DEM，以参与后续区域网平差的计算（校正地形引起的几何变形）。还提供了对影像的预处理参数。</li>
 </ol>
-<div style="text-align: center;">
+<div style="margin:auto;width:60%">
 
-<p><img src="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97-%E4%B8%89/%E9%85%8D%E7%BD%AE.png" alt="理论图示"></p>
+<p><img src="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97-%E4%B8%89/c.png" alt="理论图示"></p>
+</div>
+
+<div style="margin:auto;width:60%">
+
+<p><img src="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97-%E4%B8%89/e.png" alt="理论图示"></p>
+</div>
+
+<div style="margin:auto;width:60%">
+
+<p><img src="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97-%E4%B8%89/f.png" alt="理论图示"></p>
 </div>
 
 <ol start="3">
 <li>创建完成后，影像集会加载到工作空间中并显示在地图上，在日志中能看到处理流程，内容列表生成正射映射工程包含一系列表、图层和影像的镶嵌数据集。目录窗口有正射映射工作空间，正射映射选项卡下有校正、优化、产品和检查四个工作组。接下来您就可以执行平差和生成正射产品。</li>
 </ol>
-<div style="text-align: center;">
+<div style="margin:auto;width:80%">
 
-<p><img src="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97-%E4%B8%89/%E8%A7%86%E5%9B%BE.jpg" alt="理论图示">{:height=”80%” width=”80%”}</p>
+<p><img src="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97-%E4%B8%89/%E8%A7%86%E5%9B%BE.jpg" alt="理论图示"></p>
 </div>
 
-<h3 id="区域网平差"><a href="#区域网平差" class="headerlink" title="区域网平差"></a>区域网平差</h3><div style="text-align: center;">
+<h3 id="区域网平差"><a href="#区域网平差" class="headerlink" title="区域网平差"></a>区域网平差</h3><div style="margin:auto;width:60%">
 
-<p><img src="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97-%E4%B8%89/%E9%80%89%E9%A1%B9%E5%8D%A1.jpg" alt="理论图示">{:height=”80%” width=”80%”}</p>
+<p><img src="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97-%E4%B8%89/%E9%80%89%E9%A1%B9%E5%8D%A1.jpg" alt="理论图示"></p>
 </div>
 
 <ol>
 <li><p>校正组：创建正射映射工作空间后，下一步即是使用校正和优化组中的工具执行区域网平差。校正工具负责的操作包括：计算重叠图像的匹配点（连接点）和执行三角测量计算。校正组中的校正选项可以定义计算区域网平差的参数：</p>
- <div style="text-align: center;">
+ <div style="margin:auto;width:55%">
 
-<p> <img src="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97-%E4%B8%89/%E6%A0%A1%E6%AD%A3%E9%80%89%E9%A1%B9.jpg" alt="理论图示">{:height=”60%” width=”60%”}</p>
+<p> <img src="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97-%E4%B8%89/%E6%A0%A1%E6%AD%A3%E9%80%89%E9%A1%B9.jpg" alt="理论图示"></p>
  </div>
 
 <ul>
@@ -208,9 +218,9 @@
 <p>快速校正适用于无人机图像，在粗糙分辨率下执行校正。校正工具用于对当前正射映射工作空间中的图像集合执行区域网平差。处理工作始终在图像的源分辨率下进行 - 先计算源图像中的连接点，然后根据计算的连接点执行三角测量。<br>无人机图像和扫描的航空图像通常质量较差，或无外部方向和粗略的 GPS 信息。在这些情况下，将在粗糙的分辨率下执行初始校正 - 使用用户定义的金字塔等级来估计图像方向 - 然后在源分辨率下执行校正。</p>
 <ol start="2">
 <li><p>检查组：执行校正后内容列表中生成解决方案点，解决方案点表，连接点。日志中有处理流程。</p>
- <div style="text-align: center;">
+ <div style="margin:auto;width:80%">
 
-<p> <img src="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97-%E4%B8%89/%E6%A3%80%E6%9F%A5%E7%BB%84.jpg" alt="理论图示">{:height=”80%” width=”80%”}</p>
+<p> <img src="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97-%E4%B8%89/%E6%A3%80%E6%9F%A5%E7%BB%84.jpg" alt="理论图示"></p>
  </div>
 
 <ul>
@@ -219,9 +229,9 @@
 <li><p>无人机影像校正报告中包括了“校正汇总”表，“连接点汇总”表，“解决方案点汇总”表，“每个图像的连接点投影误差”表，“照相机校准”表，“GPS 定位偏差”表，“初始 GPS 位置和校正后的位置”图，“交叉匹配”图，“重叠地图”图，“地面控制点汇总”表，“地面控制点偏差”表，“地面控制点重新投影残差”表，“检测点偏差”表。</p>
 </li>
 <li><p>重新投影误差的定义：如果在重叠图像中识别连接点集，则可在区域网平差中计算对应点的 3D 坐标。然后将 3D 点重新投影到与之相交的所有图像上，重新投影的点和初始连接点之间的距离称为重新投影误差。</p>
-<div style="text-align: center;">
+<div style="margin:auto;width:40%">
 
-<p><img src="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97-%E4%B8%89/%E6%A0%A1%E6%AD%A3%E6%8A%A5%E5%91%8A.jpg" alt="理论图示">{:height=”60%” width=”60%”}</p>
+<p><img src="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97-%E4%B8%89/%E6%A0%A1%E6%AD%A3%E6%8A%A5%E5%91%8A.jpg" alt="理论图示"></p>
 </div>
 </li>
 <li><p>区域网平差过程使用最小二乘算法通过在这些连接点、控制点之间最小化和分布错误来计算变换，将更正或最小化影像几何错误，并解决不匹配的问题。也就是把区域网平差的解算变为最小化平均重投影误差。平均重投影误差是评估区域网平差精确程度的参数，越小越好。</p>
@@ -229,37 +239,39 @@
 </ul>
 </li>
 <li><p>优化组：管理连接点窗格用于查看和编辑所选图像的连接点和点集。运行分析连接点工具 分析连接点 以生成 coverage 要素类和重叠面要素类；这些要素类将添加到 QA/QC数据实体并包含在图像检查器表中。这两个要素类能够帮助您了解是否具有足够的连接点以及需要在何处添加更多的连接点。</p>
- <div style="text-align: center;">
+ <div style="margin:auto;width:50%">
 
-<p> <img src="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97-%E4%B8%89/%E4%BC%98%E5%8C%96%E7%BB%84.jpg" alt="理论图示">{:height=”80%” width=”80%”}</p>
+<p> <img src="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97-%E4%B8%89/%E4%BC%98%E5%8C%96%E7%BB%84.jpg" alt="理论图示"></p>
  </div>
 
+<ul>
+<li><p>使用连接点编辑器在单个图像中过滤、添加和移除连接点或点集。如果要为影像集合中的特定区域添加连接点，或使用不同的参数重新计算连接点，请运行重新计算连接点工具重新计算连接点。再次运行校正以将更新的连接点纳入校正。</p>
+<div style="margin:auto;width:50%">
+
+<p><img src="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97-%E4%B8%89/%E8%BF%9E%E6%8E%A5%E7%82%B9%E7%BC%96%E8%BE%91.jpg" alt="理论图示"></p>
+</div>
+</li>
+<li><p>使用无人机或扫描的航空影像时，必须先执行区域网平差，然后才能添加 GCP。GCP 管理器窗格用于添加、编辑和管理控制点，以便在正射映射工程中使用这些控制点。添加 GCP的三种方式：GCP 文件、GCP 坐标、参考影像计算 GCP。</p>
+<div style="margin:auto;width:50%">
+
+<p><img src="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97-%E4%B8%89/gcp.jpg" alt="理论图示"></p>
+</div>
+</li>
+<li><p>添加连接点：创建GCP 对应的影像的连接点。</p>
+</li>
+<li><p>添加检测点：GCP 转换为检测点以进行精度评估，并不将其用作控制平差过程的输入。</p>
+</li>
+<li><p>检测点在正射映射工作空间地图中显示为粉色三角形，而 GCP 管理器中的 Label 图标则从蓝色圆圈变为蓝色三角形。添加 GCP 、检测点或连接点后，必须重新运行区域网平差才能使用这些点。</p>
+<div style="margin:auto;width:50%">
+
+<p><img src="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97-%E4%B8%89/%E6%A3%80%E6%B5%8B%E7%82%B9.jpg" alt="理论图示"></p>
+</div>
 
 </li>
+</ul>
+</li>
 </ol>
-<pre><code>- 使用连接点编辑器在单个图像中过滤、添加和移除连接点或点集。如果要为影像集合中的特定区域添加连接点，或使用不同的参数重新计算连接点，请运行重新计算连接点工具重新计算连接点。再次运行校正以将更新的连接点纳入校正。
-
-&lt;div style=&quot;text-align: center;&quot;&gt;
-
-![理论图示](2020-06-30-ArcGIS中的Ortho-Mapping模块（三）/连接点编辑.jpg){:height=&quot;80%&quot; width=&quot;80%&quot;}
-&lt;/div&gt;
-
-- 使用无人机或扫描的航空影像时，必须先执行区域网平差，然后才能添加 GCP。GCP 管理器窗格用于添加、编辑和管理控制点，以便在正射映射工程中使用这些控制点。添加 GCP的三种方式：GCP 文件、GCP 坐标、参考影像计算 GCP。
-&lt;div style=&quot;text-align: center;&quot;&gt;
-
-![理论图示](2020-06-30-ArcGIS中的Ortho-Mapping模块（三）/gcp.jpg)
-&lt;/div&gt;
-
-- 添加连接点：创建GCP 对应的影像的连接点。
-
-- 添加检测点：GCP 转换为检测点以进行精度评估，并不将其用作控制平差过程的输入。
-
-&lt;div style=&quot;text-align: center;&quot;&gt;
-
-![理论图示](2020-06-30-ArcGIS中的Ortho-Mapping模块（三）/检测点.jpg){:height=&quot;80%&quot; width=&quot;80%&quot;}
-&lt;/div&gt;
-
-- 检测点在正射映射工作空间地图中显示为粉色三角形，而 GCP 管理器中的 Label 图标则从蓝色圆圈变为蓝色三角形。添加 GCP 、检测点或连接点后，必须重新运行区域网平差才能使用这些点。</code></pre><h3 id="向导式生成产品"><a href="#向导式生成产品" class="headerlink" title="向导式生成产品"></a>向导式生成产品</h3><h4 id="DEM向导"><a href="#DEM向导" class="headerlink" title="DEM向导"></a>DEM向导</h4><p>要想生成DEM，必须有立体像对。立体像对是指以不同角度从同一区域的不同地理位置获取的两个影像。影像集合的立体像对可用于生成可获取高程数据的点云（3D 点）。</p>
+<h3 id="向导式生成产品"><a href="#向导式生成产品" class="headerlink" title="向导式生成产品"></a>向导式生成产品</h3><h4 id="DEM向导"><a href="#DEM向导" class="headerlink" title="DEM向导"></a>DEM向导</h4><p>要想生成DEM，必须有立体像对。立体像对是指以不同角度从同一区域的不同地理位置获取的两个影像。影像集合的立体像对可用于生成可获取高程数据的点云（3D 点）。</p>
 <center>
 
 <figure class="half">
