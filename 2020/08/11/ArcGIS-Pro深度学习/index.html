@@ -289,14 +289,14 @@
 <h3 id="4-3-推理"><a href="#4-3-推理" class="headerlink" title="4.3-推理"></a>4.3-推理</h3><p>推理相关的工具有三个，不同的模型有对应的推理工具。</p>
 <ol>
 <li><p>对象检测模型SSD、RetinaNet、实例分割模型MaskRCNN对应工具是Detect Objects Using Deep Learning。</p>
-<br>
- - out_detected_objects，输出是矢量数据，**不要输出shpfile，输出到GDB**。
- - in_model_definition，上一步模型训练输出的emd文件。
- - Arguments，参数名称由工具读取python模块进行填充。列出的是优化参数
- - run-nms，执行非极大抑制，用于识别重复的对象并删除置信度低的对象。
- 非极大值抑制(NMS)，对象检测的输出是针对同一对象的多个边界框，两个要素重叠超过最大比率，会移除置信度低的要素，目的是抑制冗余的框，其过程是迭代-遍历-消除的过程。
+<ul>
+<li>out_detected_objects，输出是矢量数据，<strong>不要输出shpfile，输出到GDB</strong>。</li>
+<li>in_model_definition，上一步模型训练输出的emd文件。</li>
+<li>Arguments，参数名称由工具读取python模块进行填充。列出的是优化参数</li>
+<li>run-nms，执行非极大抑制，用于识别重复的对象并删除置信度低的对象。<br>非极大值抑制(NMS)，对象检测的输出是针对同一对象的多个边界框，两个要素重叠超过最大比率，会移除置信度低的要素，目的是抑制冗余的框，其过程是迭代-遍历-消除的过程。</li>
+</ul>
 </li>
-<li><p>像素分类模型UNET,PSPNET对应工具是Classify Pixels Using Deep Learning，</p>
+<li><p>像素分类模型UNET,PSPNET对应工具是Classify Pixels Using Deep Learning.</p>
 <ul>
 <li>output_classifie_Raster，像素分类输出是分类结果，栅格图层。</li>
 </ul>
