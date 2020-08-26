@@ -14,7 +14,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 <meta name="description" content="ArcGIS中的Ortho-Mapping模块(三)"/><meta name="keywords" content="GeoScience" /><link rel="alternate" href="/default" title="GeoSpatial"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
-<link rel="canonical" href="https://obladlee.github.io/2020/07/24/ArcGIS中的Ortho-Mapping模块（三）/"/>
+<link rel="canonical" href="https://obladlee.github.io/2020/07/24/OrthoMapping3/"/>
 
 <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" /><script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
@@ -133,7 +133,7 @@
 <h2 id="工作流"><a href="#工作流" class="headerlink" title="工作流"></a>工作流</h2><p>简单来讲，工作流分为三步：创建正射制图工作空间，区域网平差，向导式生成正射产品。以下图示略复杂，因为涉及以镶嵌数据集创建正射映射工作空间。下述会解释其应用情景。</p>
 <div style="margin:auto;width:40%">
 
-<p><img src="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97%EF%BC%88%E4%B8%89%EF%BC%89/%E5%B7%A5%E4%BD%9C%E6%B5%81.jpg" alt="理论图示"></p>
+<p><img src="/2020/07/24/OrthoMapping3/%E5%B7%A5%E4%BD%9C%E6%B5%81.jpg" alt="理论图示"></p>
 </div>
 
 <h3 id="创建正射制图工作空间"><a href="#创建正射制图工作空间" class="headerlink" title="创建正射制图工作空间"></a>创建正射制图工作空间</h3><ol>
@@ -150,7 +150,7 @@
 </ol>
 <div style="margin:auto;width:35%">
 
-<p><img src="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97%EF%BC%88%E4%B8%89%EF%BC%89/exif.jpg" alt="理论图示"></p>
+<p><img src="/2020/07/24/OrthoMapping3/exif.jpg" alt="理论图示"></p>
 </div>
 
 <ol start="3">
@@ -166,7 +166,7 @@
 </ol>
 <div style="margin:auto;width:80%">
 
-<p><img src="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97%EF%BC%88%E4%B8%89%EF%BC%89/create.jpg" alt="理论图示"></p>
+<p><img src="/2020/07/24/OrthoMapping3/create.jpg" alt="理论图示"></p>
 </div>
 
 <ol start="2">
@@ -174,17 +174,17 @@
 </ol>
 <div style="margin:auto;width:60%">
 
-<p><img src="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97%EF%BC%88%E4%B8%89%EF%BC%89/c.png" alt="理论图示"></p>
+<p><img src="/2020/07/24/OrthoMapping3/c.png" alt="理论图示"></p>
 </div>
 
 <div style="margin:auto;width:60%">
 
-<p><img src="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97%EF%BC%88%E4%B8%89%EF%BC%89/e.png" alt="理论图示"></p>
+<p><img src="/2020/07/24/OrthoMapping3/e.png" alt="理论图示"></p>
 </div>
 
 <div style="margin:auto;width:60%">
 
-<p><img src="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97%EF%BC%88%E4%B8%89%EF%BC%89/f.png" alt="理论图示"></p>
+<p><img src="/2020/07/24/OrthoMapping3/f.png" alt="理论图示"></p>
 </div>
 
 <ol start="3">
@@ -192,19 +192,19 @@
 </ol>
 <div style="margin:auto;width:80%">
 
-<p><img src="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97%EF%BC%88%E4%B8%89%EF%BC%89/%E8%A7%86%E5%9B%BE.jpg" alt="理论图示"></p>
+<p><img src="/2020/07/24/OrthoMapping3/%E8%A7%86%E5%9B%BE.jpg" alt="理论图示"></p>
 </div>
 
 <h3 id="区域网平差"><a href="#区域网平差" class="headerlink" title="区域网平差"></a>区域网平差</h3><div style="margin:auto;width:60%">
 
-<p><img src="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97%EF%BC%88%E4%B8%89%EF%BC%89/%E9%80%89%E9%A1%B9%E5%8D%A1.jpg" alt="理论图示"></p>
+<p><img src="/2020/07/24/OrthoMapping3/%E9%80%89%E9%A1%B9%E5%8D%A1.jpg" alt="理论图示"></p>
 </div>
 
 <ol>
 <li><p>校正组：创建正射映射工作空间后，下一步即是使用校正和优化组中的工具执行区域网平差。校正工具负责的操作包括：计算重叠图像的匹配点（连接点）和执行三角测量计算。校正组中的校正选项可以定义计算区域网平差的参数：</p>
  <div style="margin:auto;width:55%">
 
-<p> <img src="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97%EF%BC%88%E4%B8%89%EF%BC%89/%E6%A0%A1%E6%AD%A3%E9%80%89%E9%A1%B9.jpg" alt="理论图示"></p>
+<p> <img src="/2020/07/24/OrthoMapping3/%E6%A0%A1%E6%AD%A3%E9%80%89%E9%A1%B9.jpg" alt="理论图示"></p>
  </div>
 
 <ul>
@@ -220,7 +220,7 @@
 <li><p>检查组：执行校正后内容列表中生成解决方案点，解决方案点表，连接点。日志中有处理流程。</p>
  <div style="margin:auto;width:80%">
 
-<p> <img src="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97%EF%BC%88%E4%B8%89%EF%BC%89/%E6%A3%80%E6%9F%A5%E7%BB%84.jpg" alt="理论图示"></p>
+<p> <img src="/2020/07/24/OrthoMapping3/%E6%A3%80%E6%9F%A5%E7%BB%84.jpg" alt="理论图示"></p>
  </div>
 
 <ul>
@@ -231,7 +231,7 @@
 <li><p>重新投影误差的定义：如果在重叠图像中识别连接点集，则可在区域网平差中计算对应点的 3D 坐标。然后将 3D 点重新投影到与之相交的所有图像上，重新投影的点和初始连接点之间的距离称为重新投影误差。</p>
 <div style="margin:auto;width:40%">
 
-<p><img src="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97%EF%BC%88%E4%B8%89%EF%BC%89/%E6%A0%A1%E6%AD%A3%E6%8A%A5%E5%91%8A.jpg" alt="理论图示"></p>
+<p><img src="/2020/07/24/OrthoMapping3/%E6%A0%A1%E6%AD%A3%E6%8A%A5%E5%91%8A.jpg" alt="理论图示"></p>
 </div>
 </li>
 <li><p>区域网平差过程使用最小二乘算法通过在这些连接点、控制点之间最小化和分布错误来计算变换，将更正或最小化影像几何错误，并解决不匹配的问题。也就是把区域网平差的解算变为最小化平均重投影误差。平均重投影误差是评估区域网平差精确程度的参数，越小越好。</p>
@@ -241,20 +241,20 @@
 <li><p>优化组：管理连接点窗格用于查看和编辑所选图像的连接点和点集。运行分析连接点工具 分析连接点 以生成 coverage 要素类和重叠面要素类；这些要素类将添加到 QA/QC数据实体并包含在图像检查器表中。这两个要素类能够帮助您了解是否具有足够的连接点以及需要在何处添加更多的连接点。</p>
  <div style="margin:auto;width:50%">
 
-<p> <img src="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97%EF%BC%88%E4%B8%89%EF%BC%89/%E4%BC%98%E5%8C%96%E7%BB%84.jpg" alt="理论图示"></p>
+<p> <img src="/2020/07/24/OrthoMapping3/%E4%BC%98%E5%8C%96%E7%BB%84.jpg" alt="理论图示"></p>
  </div>
 
 <ul>
 <li><p>使用连接点编辑器在单个图像中过滤、添加和移除连接点或点集。如果要为影像集合中的特定区域添加连接点，或使用不同的参数重新计算连接点，请运行重新计算连接点工具重新计算连接点。再次运行校正以将更新的连接点纳入校正。</p>
 <div style="margin:auto;width:50%">
 
-<p><img src="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97%EF%BC%88%E4%B8%89%EF%BC%89/%E8%BF%9E%E6%8E%A5%E7%82%B9%E7%BC%96%E8%BE%91.jpg" alt="理论图示"></p>
+<p><img src="/2020/07/24/OrthoMapping3/%E8%BF%9E%E6%8E%A5%E7%82%B9%E7%BC%96%E8%BE%91.jpg" alt="理论图示"></p>
 </div>
 </li>
 <li><p>使用无人机或扫描的航空影像时，必须先执行区域网平差，然后才能添加 GCP。GCP 管理器窗格用于添加、编辑和管理控制点，以便在正射映射工程中使用这些控制点。添加 GCP的三种方式：GCP 文件、GCP 坐标、参考影像计算 GCP。</p>
 <div style="margin:auto;width:50%">
 
-<p><img src="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97%EF%BC%88%E4%B8%89%EF%BC%89/gcp.jpg" alt="理论图示"></p>
+<p><img src="/2020/07/24/OrthoMapping3/gcp.jpg" alt="理论图示"></p>
 </div>
 </li>
 <li><p>添加连接点：创建GCP 对应的影像的连接点。</p>
@@ -264,7 +264,7 @@
 <li><p>检测点在正射映射工作空间地图中显示为粉色三角形，而 GCP 管理器中的 Label 图标则从蓝色圆圈变为蓝色三角形。添加 GCP 、检测点或连接点后，必须重新运行区域网平差才能使用这些点。</p>
 <div style="margin:auto;width:50%">
 
-<p><img src="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97%EF%BC%88%E4%B8%89%EF%BC%89/%E6%A3%80%E6%B5%8B%E7%82%B9.jpg" alt="理论图示"></p>
+<p><img src="/2020/07/24/OrthoMapping3/%E6%A3%80%E6%B5%8B%E7%82%B9.jpg" alt="理论图示"></p>
 </div>
 
 </li>
@@ -275,8 +275,8 @@
 <center>
 
 <figure class="half">
-    <img src="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97%EF%BC%88%E4%B8%89%EF%BC%89/产品向导.jpg">
-    <img src="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97%EF%BC%88%E4%B8%89%EF%BC%89/立体像对.jpg">
+    <img src="/2020/07/24/OrthoMapping3/产品向导.jpg">
+    <img src="/2020/07/24/OrthoMapping3/立体像对.jpg">
 </figure>
 </center>
 
@@ -294,9 +294,9 @@
             <a href="/tags/%E6%AD%A3%E5%B0%84%E5%88%B6%E5%9B%BE/">正射制图</a>
             </div>
         
-        <nav class="post-nav"><a class="prev" href="/2020/07/24/ArcGIS%E4%B8%AD%E7%9A%84Ortho-Mapping%E6%A8%A1%E5%9D%97%EF%BC%88%E5%9B%9B%EF%BC%89/">
+        <nav class="post-nav"><a class="prev" href="/2020/07/24/OrthoMapping3/">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">ArcGIS中的Ortho-Mapping模块(四)</span>
+        <span class="prev-text nav-default">ArcGIS中的Ortho-Mapping模块(三)</span>
         <span class="prev-text nav-mobile">上一篇</span>
       </a>
     <a class="next" href="/2020/07/06/Utility-Network-%E5%85%AC%E5%85%B1%E8%AE%BE%E6%96%BD%E7%BD%91%E7%BB%9C/">

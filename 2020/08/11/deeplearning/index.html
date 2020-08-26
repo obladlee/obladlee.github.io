@@ -14,7 +14,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 <meta name="description" content="ArcGIS Pro深度学习"/><meta name="keywords" content="GeoScience" /><link rel="alternate" href="/default" title="GeoSpatial"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0" />
-<link rel="canonical" href="https://obladlee.github.io/2020/08/11/ArcGIS-Pro深度学习/"/>
+<link rel="canonical" href="https://obladlee.github.io/2020/08/11/deeplearning/"/>
 
 <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" /><script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
@@ -136,7 +136,7 @@
 <h2 id="2-功能实现"><a href="#2-功能实现" class="headerlink" title="2-功能实现"></a>2-功能实现</h2><p>ArcGIS Pro2.5新增六个深度学习模型(算法)，实现图像分类、对象检测、语义分割、实例分割四大功能，以下从一个遥感示例和一个计算机视觉示例的组合解释功能含义：</p>
 <div style="margin:auto;width:50%">
 
-<p><img src="/2020/08/11/ArcGIS-Pro%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/classify.png" alt="理论图示"></p>
+<p><img src="/2020/08/11/deeplearning/classify.png" alt="理论图示"></p>
 </div>
 
 <ul>
@@ -144,7 +144,7 @@
 </ul>
 <div style="margin:auto;width:50%">
 
-<p><img src="/2020/08/11/ArcGIS-Pro%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/detect.png" alt="理论图示"></p>
+<p><img src="/2020/08/11/deeplearning/detect.png" alt="理论图示"></p>
 </div>
 
 <ul>
@@ -152,7 +152,7 @@
 </ul>
 <div style="margin:auto;width:50%">
 
-<p><img src="/2020/08/11/ArcGIS-Pro%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/pixel.png" alt="理论图示"></p>
+<p><img src="/2020/08/11/deeplearning/pixel.png" alt="理论图示"></p>
 </div>
 
 <ul>
@@ -160,7 +160,7 @@
 </ul>
 <div style="margin:auto;width:50%">
 
-<p><img src="/2020/08/11/ArcGIS-Pro%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/instance.png" alt="理论图示"></p>
+<p><img src="/2020/08/11/deeplearning/instance.png" alt="理论图示"></p>
 </div>
 
 <ul>
@@ -169,7 +169,7 @@
 <p><strong>深度学习实现的四大功能与相对应的深度学习模型(算法)以及ArcGIS Pro中的模型训练工具有相对应的关系</strong>，如下图示，比如要想实现图像分类，必须使用Feature Classifier算法训练模型。</p>
 <div style="margin:auto;width:80%">
 
-<p><img src="/2020/08/11/ArcGIS-Pro%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/model.jpg" alt="理论图示"></p>
+<p><img src="/2020/08/11/deeplearning/model.jpg" alt="理论图示"></p>
 </div>
 
 <h2 id="3-配置环境"><a href="#3-配置环境" class="headerlink" title="3-配置环境"></a>3-配置环境</h2><p>深度学习环境配置是前提也是顺利完成任务的一大障碍，很容易让人放弃。</p>
@@ -184,7 +184,7 @@
 </ul>
 <h4 id="3-2-3-克隆环境、安装深度学习包"><a href="#3-2-3-克隆环境、安装深度学习包" class="headerlink" title="3.2.3-克隆环境、安装深度学习包"></a>3.2.3-克隆环境、安装深度学习包</h4><div style="margin:auto;width:70%">
 
-<p><img src="/2020/08/11/ArcGIS-Pro%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/pyenv.jpg" alt="理论图示"></p>
+<p><img src="/2020/08/11/deeplearning/pyenv.jpg" alt="理论图示"></p>
 </div>
 
 <ul>
@@ -195,19 +195,19 @@
 <h2 id="4-处理流程"><a href="#4-处理流程" class="headerlink" title="4-处理流程"></a>4-处理流程</h2><p>深度学习的处理过程只有三步：样本制作、模型训练、推理。切忌拿样本直接做推理。</p>
 <div style="margin:auto;width:80%">
 
-<p><img src="/2020/08/11/ArcGIS-Pro%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/process.jpg" alt="理论图示"></p>
+<p><img src="/2020/08/11/deeplearning/process.jpg" alt="理论图示"></p>
 </div>
 
 <h3 id="4-1-样本制作"><a href="#4-1-样本制作" class="headerlink" title="4.1-样本制作"></a>4.1-样本制作</h3><p>样本制作分为两个阶段，样本标记和样本导出。样本的数量和质量极大影响深度学习结果，标记的样本是GIS数据格式，样本导出能将其转换为深度学习框架所需的数据格式。</p>
 <h4 id="4-1-1-样本标记-标注"><a href="#4-1-1-样本标记-标注" class="headerlink" title="4.1.1-样本标记\标注"></a>4.1.1-样本标记\标注</h4><div style="margin:auto;width:70%">
 
-<p><img src="/2020/08/11/ArcGIS-Pro%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/label.jpg" alt="理论图示"></p>
+<p><img src="/2020/08/11/deeplearning/label.jpg" alt="理论图示"></p>
 </div>
 
 <p>样本标对应两个工具，在Imagery选项卡-Classification Tools下的Traning Samples Manager和Label Objects for Deep Learning。后者集成了样本导出的功能。前者提供了默认的水、森林、湿地等类别方便快速标注，并提供标注拆分合并工具。<br><strong>制作样本如果使用数字1、2、3…作为类别值，值不能为0，0在某些深度学习框架中有特殊含义</strong></p>
 <h4 id="4-1-2-样本导出"><a href="#4-1-2-样本导出" class="headerlink" title="4.1.2-样本导出"></a>4.1.2-样本导出</h4><div style="margin:auto;width:30%">
 
-<p><img src="/2020/08/11/ArcGIS-Pro%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/export.jpg" alt="理论图示"></p>
+<p><img src="/2020/08/11/deeplearning/export.jpg" alt="理论图示"></p>
 </div>
 
 <p>Label Objects for Deep Learning集成了导出训练数据工具，无需单独执行导出。<br>影像分析模块下的深度学习工具箱的Export Training Data for Deep Learning用于导出样本数据：</p>
@@ -221,7 +221,7 @@
 <h4 id="4-2-1-工具参数"><a href="#4-2-1-工具参数" class="headerlink" title="4.2.1-工具参数"></a>4.2.1-工具参数</h4><p>以下简单介绍模型训练的参数:</p>
 <div style="margin:auto;width:70%">
 
-<p><img src="/2020/08/11/ArcGIS-Pro%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/train.png" alt="理论图示"></p>
+<p><img src="/2020/08/11/deeplearning/train.png" alt="理论图示"></p>
 </div>
 
 <ol>
@@ -238,7 +238,7 @@
 </ol>
 <div style="margin:auto;width:80%">
 
-<p><img src="/2020/08/11/ArcGIS-Pro%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/backbone.png" alt="理论图示"></p>
+<p><img src="/2020/08/11/deeplearning/backbone.png" alt="理论图示"></p>
 </div>
 
 <ol start="7">
@@ -262,7 +262,7 @@
 <h4 id="4-2-2-训练过程及结果"><a href="#4-2-2-训练过程及结果" class="headerlink" title="4.2.2-训练过程及结果"></a>4.2.2-训练过程及结果</h4><p>训练中可以通过消息窗口查看损失值，损失值呈下降状态说明模型可用，来回摆动，或有增大趋势，可调整参数重新训练。<br>训练结果保存为一个文件夹，包括以下文件，</p>
 <div style="margin:auto;width:80%">
 
-<p><img src="/2020/08/11/ArcGIS-Pro%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/emd.jpg" alt="理论图示"></p>
+<p><img src="/2020/08/11/deeplearning/emd.jpg" alt="理论图示"></p>
 </div>
 
 <ul>
@@ -279,7 +279,7 @@
 </ul>
 <div style="margin:auto;width:50%">
 
-<p><img src="/2020/08/11/ArcGIS-Pro%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/vloss.jpg" alt="理论图示"></p>
+<p><img src="/2020/08/11/deeplearning/vloss.jpg" alt="理论图示"></p>
 </div>
 
 <ul>
